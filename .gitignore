@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated
+*.log
+*.tmp
+
+# Build artifacts
+dist/
+build/
+
+# Gemini AI workspace
+.gemini/
