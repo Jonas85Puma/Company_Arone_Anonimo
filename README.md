@@ -212,6 +212,7 @@ Cada nivel incrementa la difusión y opacidad para crear profundidad visual.
 - Info: Teléfono, WhatsApp, Email, Ubicación, Horario
 - **Formulario → WhatsApp**: al enviar, redirige a `wa.me/` con el mensaje pre-formateado
 - El formulario no requiere backend
+- **Mapa Interactivo**: Integración de Google Maps mostrando la ubicación en Av. Santa Rosa, Ayacucho.
 
 ### 11. Footer
 - Logo con colores originales (sin filtro blanco)

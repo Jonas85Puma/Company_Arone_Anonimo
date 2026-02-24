@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '.section__header, .service-card, .about__feature, .portfolio__item, ' +
         '.testimonial-card, .trust-bar__item, .contact__detail, .footer__links, ' +
         '.about__image, .about__content, .contact__form-wrapper, .contact__info, ' +
-        '.cta__content'
+        '.cta__content, .contact__map'
     );
 
     if (revealElements.length > 0) {
