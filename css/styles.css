@@ -33,7 +33,7 @@
 
    /* Section backgrounds — unified intermediate gray */
    --section-bg-a: #cdd5df;   /* intermediate blue-gray — all sections */
-   --section-bg-b: #cdd5df;   /* same — consistent across the page */
+   --section-bg-b: #b8c3cf;   /* slightly darker — real tonal alternation */
    --card-bg: #e8ecf2;        /* card/panel background — lighter than section, softer than white */
 
    /* Semantic Colors */
@@ -779,7 +779,7 @@ select {
    SERVICES
    ============================================ */
 .services {
-   background: var(--section-bg-a);
+   background: radial-gradient(ellipse at 88% 12%, rgba(253, 186, 18, 0.10) 0%, transparent 55%), var(--section-bg-a);
 }
 
 .services__grid {
@@ -794,6 +794,7 @@ select {
    background: var(--card-bg);
    border: 1px solid rgba(17,24,39,0.1);
    border-radius: var(--radius-lg);
+   box-shadow: 0 4px 16px rgba(17, 24, 39, 0.10), 0 1px 4px rgba(17, 24, 39, 0.06);
    transition: var(--transition);
    overflow: hidden;
 }
@@ -1007,12 +1008,13 @@ select {
 }
 
 /* ============================================
-   WAVE DIVIDER
+   WAVE DIVIDERS
    ============================================ */
 .wave-divider {
    margin-top: -2px;
    line-height: 0;
-   background: var(--section-bg-a);
+   position: relative;
+   z-index: 1;
 }
 
 .wave-divider svg {
@@ -1021,11 +1023,18 @@ select {
    display: block;
 }
 
+/* bg = section above · color = section below (SVG uses fill="currentColor") */
+.wave-divider--a-to-b  { background: var(--section-bg-a); color: var(--section-bg-b); }
+.wave-divider--b-to-a  { background: var(--section-bg-b); color: var(--section-bg-a); }
+.wave-divider--dark-to-a { background: var(--primary);      color: var(--section-bg-a); }
+.wave-divider--a-to-dark { background: var(--section-bg-a); color: var(--primary);      }
+.wave-divider--b-to-dark { background: var(--section-bg-b); color: var(--primary);      }
+
 /* ============================================
    PROCESS SECTION
    ============================================ */
 .process {
-   background: var(--section-bg-b);
+   background: radial-gradient(ellipse at 12% 85%, rgba(253, 186, 18, 0.08) 0%, transparent 50%), var(--section-bg-b);
 }
 
 .process__timeline {
@@ -1158,7 +1167,7 @@ select {
    ABOUT
    ============================================ */
 .about {
-   background: var(--section-bg-a);
+   background: radial-gradient(ellipse at 82% 55%, rgba(253, 186, 18, 0.09) 0%, transparent 50%), var(--section-bg-a);
 }
 
 .about__container {
@@ -1255,7 +1264,7 @@ select {
    PORTFOLIO
    ============================================ */
 .portfolio {
-   background: var(--section-bg-a);
+   background: radial-gradient(ellipse at 15% 20%, rgba(17, 24, 39, 0.05) 0%, transparent 55%), var(--section-bg-a);
 }
 
 .portfolio__filter {
@@ -1415,7 +1424,7 @@ select {
    TESTIMONIALS
    ============================================ */
 .testimonials {
-   background: var(--section-bg-b);
+   background: radial-gradient(ellipse at 80% 90%, rgba(253, 186, 18, 0.08) 0%, transparent 50%), var(--section-bg-b);
 }
 
 .testimonials__slider {
@@ -1435,6 +1444,7 @@ select {
    padding: 2rem;
    border-radius: var(--radius-lg);
    border: 1px solid rgba(17,24,39,0.1);
+   box-shadow: 0 4px 16px rgba(17, 24, 39, 0.10), 0 1px 4px rgba(17, 24, 39, 0.06);
    transition: var(--transition);
 }
 
@@ -1564,7 +1574,7 @@ select {
    CERTIFICATIONS — ISO SEALS
    ============================================ */
 .certifications {
-   background: var(--section-bg-b);
+   background: radial-gradient(ellipse at 50% 10%, rgba(253, 186, 18, 0.09) 0%, transparent 55%), var(--section-bg-b);
 }
 
 /* Row of 4 seals */
@@ -1823,7 +1833,7 @@ select {
    CONTACT
    ============================================ */
 .contact {
-   background: var(--section-bg-a);
+   background: radial-gradient(ellipse at 90% 75%, rgba(17, 24, 39, 0.05) 0%, transparent 50%), var(--section-bg-a);
 }
 
 .contact__container {
