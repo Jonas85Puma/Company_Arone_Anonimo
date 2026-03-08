@@ -31,9 +31,10 @@
    --gray-50: #f9fafb;
    --white: #ffffff;
 
-   /* Section backgrounds — alternating rhythm */
-   --section-bg-a: #f0f4f8;   /* soft blue-gray — for 1st, 3rd, 5th... sections */
-   --section-bg-b: #ffffff;   /* clean white — for 2nd, 4th, 6th... sections */
+   /* Section backgrounds — unified intermediate gray */
+   --section-bg-a: #cdd5df;   /* intermediate blue-gray — all sections */
+   --section-bg-b: #cdd5df;   /* same — consistent across the page */
+   --card-bg: #e8ecf2;        /* card/panel background — lighter than section, softer than white */
 
    /* Semantic Colors */
    --success: #10b981;
@@ -249,9 +250,9 @@ select {
 }
 
 .header--scrolled {
-   background: rgba(255, 255, 255, 0.85);
-   -webkit-backdrop-filter: blur(20px) saturate(180%);
-   backdrop-filter: blur(20px) saturate(180%);
+   background: rgba(205, 213, 223, 0.92);
+   -webkit-backdrop-filter: blur(20px) saturate(160%);
+   backdrop-filter: blur(20px) saturate(160%);
    box-shadow: var(--shadow-sm);
    border-bottom: 1px solid rgba(253, 186, 18, 0.1);
 }
@@ -311,13 +312,13 @@ select {
 }
 
 .header--scrolled .nav__link {
-   color: var(--gray-600);
+   color: var(--gray-800);
 }
 
 .header--scrolled .nav__link:hover,
 .header--scrolled .nav__link.active {
    color: var(--primary);
-   background: var(--primary-50);
+   background: rgba(17, 24, 39, 0.08);
 }
 
 .nav__actions {
@@ -790,8 +791,8 @@ select {
 .service-card {
    position: relative;
    padding: 2rem;
-   background: var(--white);
-   border: 1px solid var(--gray-200);
+   background: var(--card-bg);
+   border: 1px solid rgba(17,24,39,0.1);
    border-radius: var(--radius-lg);
    transition: var(--transition);
    overflow: hidden;
@@ -804,14 +805,14 @@ select {
    font-family: var(--font-heading);
    font-size: 5rem;
    font-weight: 800;
-   color: var(--gray-100);
+   color: rgba(17, 24, 39, 0.07);
    line-height: 1;
    pointer-events: none;
    transition: var(--transition);
 }
 
 .service-card:hover .service-card__number {
-   color: var(--primary-100);
+   color: rgba(17, 24, 39, 0.12);
    transform: scale(1.1);
 }
 
@@ -1068,11 +1069,11 @@ select {
    display: flex;
    align-items: center;
    justify-content: center;
-   background: var(--white);
-   border: 3px solid var(--gray-200);
+   background: var(--card-bg);
+   border: 3px solid var(--gray-300);
    border-radius: 50%;
    font-size: 1.25rem;
-   color: var(--gray-400);
+   color: var(--gray-500);
    transition: var(--transition);
    box-shadow: var(--shadow);
 }
@@ -1080,7 +1081,7 @@ select {
 .process__step.active .process__step-icon {
    border-color: var(--accent);
    color: var(--primary);
-   background: linear-gradient(135deg, #fffbeb, var(--white));
+   background: linear-gradient(135deg, #fffbeb, var(--card-bg));
    box-shadow: 0 0 0 6px rgba(232, 184, 4, 0.15);
 }
 
@@ -1430,10 +1431,10 @@ select {
 
 .testimonial-card {
    flex: 0 0 calc(33.333% - 1rem);
-   background: var(--white);
+   background: var(--card-bg);
    padding: 2rem;
    border-radius: var(--radius-lg);
-   border: 1px solid var(--gray-200);
+   border: 1px solid rgba(17,24,39,0.1);
    transition: var(--transition);
 }
 
@@ -1750,8 +1751,8 @@ select {
 .certifications__note {
    text-align: center;
    padding: 1.25rem 2rem;
-   background: linear-gradient(135deg, var(--primary-50), #fff8e1);
-   border: 1px solid var(--gray-200);
+   background: var(--card-bg);
+   border: 1px solid rgba(17,24,39,0.1);
    border-radius: var(--radius-lg);
    color: var(--gray-600);
    font-size: 0.9rem;
@@ -1918,8 +1919,8 @@ select {
 
 /* Contact Form */
 .contact__form-wrapper {
-   background: var(--white);
-   border: 1px solid var(--gray-200);
+   background: var(--card-bg);
+   border: 1px solid rgba(17,24,39,0.1);
    border-radius: var(--radius-xl);
    padding: 2.5rem;
    box-shadow: var(--shadow-lg);
