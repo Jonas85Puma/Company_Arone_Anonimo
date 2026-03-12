@@ -461,4 +461,69 @@ document.addEventListener('DOMContentLoaded', () => {
         autoAdvance();
     });
 
+    // ===========================
+    // GALLERY LIGHTBOX
+    // ===========================
+    const lightbox     = document.getElementById('lightbox');
+    const lightboxImg  = document.getElementById('lightbox-img');
+    const lbClose      = document.getElementById('lightbox-close');
+    const lbBackdrop   = document.getElementById('lightbox-backdrop');
+    const lbPrev       = document.getElementById('lightbox-prev');
+    const lbNext       = document.getElementById('lightbox-next');
+
+    if (lightbox && lightboxImg) {
+        const galleryImgs = Array.from(
+            document.querySelectorAll('.portfolio__gallery-item img')
+        );
+        let currentLbIdx = 0;
+
+        function openLightbox(idx) {
+            currentLbIdx = idx;
+            lightboxImg.src = galleryImgs[idx].src;
+            lightboxImg.alt = galleryImgs[idx].alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        function showPrev() {
+            openLightbox((currentLbIdx - 1 + galleryImgs.length) % galleryImgs.length);
+        }
+
+        function showNext() {
+            openLightbox((currentLbIdx + 1) % galleryImgs.length);
+        }
+
+        galleryImgs.forEach((img, idx) => {
+            img.parentElement.addEventListener('click', () => openLightbox(idx));
+        });
+
+        lbClose.addEventListener('click', closeLightbox);
+        lbBackdrop.addEventListener('click', closeLightbox);
+        lbPrev.addEventListener('click', showPrev);
+        lbNext.addEventListener('click', showNext);
+
+        document.addEventListener('keydown', e => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape')     closeLightbox();
+            if (e.key === 'ArrowLeft')  showPrev();
+            if (e.key === 'ArrowRight') showNext();
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+        lightbox.addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) diff > 0 ? showNext() : showPrev();
+        }, { passive: true });
+    }
+
 });
