@@ -30,6 +30,7 @@
 
     <link rel="canonical" href="https://www.companyarone.com/">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta name="theme-color" content="#111827">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,27 +198,26 @@
         <section class="partners-ticker" aria-label="Empresas e instituciones con las que trabajamos">
             <div class="partners-ticker__track">
                 <!-- Set 1 -->
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad Provincial de Huamanga</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Gobierno Regional de Ayacucho</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad de San Juan Bautista</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad de Huanta</div>
-                <div class="partners-ticker__item"><i class="fas fa-hospital"></i> Hospital Regional de Ayacucho</div>
-                <div class="partners-ticker__item"><i class="fas fa-graduation-cap"></i> UGEL Huamanga</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad de Jesús Nazareno</div>
-                <div class="partners-ticker__item"><i class="fas fa-building"></i> Proyecto Especial Sierra Centro Sur</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad de Quinua</div>
-                <div class="partners-ticker__item"><i class="fas fa-university"></i> UNSCH Ayacucho</div>
-                <!-- Set 2 (duplicate for seamless loop) -->
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad Provincial de Huamanga</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Gobierno Regional de Ayacucho</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad de San Juan Bautista</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad de Huanta</div>
-                <div class="partners-ticker__item"><i class="fas fa-hospital"></i> Hospital Regional de Ayacucho</div>
-                <div class="partners-ticker__item"><i class="fas fa-graduation-cap"></i> UGEL Huamanga</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad de Jesús Nazareno</div>
-                <div class="partners-ticker__item"><i class="fas fa-building"></i> Proyecto Especial Sierra Centro Sur</div>
-                <div class="partners-ticker__item"><i class="fas fa-landmark"></i> Municipalidad de Quinua</div>
-                <div class="partners-ticker__item"><i class="fas fa-university"></i> UNSCH Ayacucho</div>
+                <div class="partners-ticker__item partners-ticker__item--logo">
+                    <div class="partners-ticker__logo-wrap partners-ticker__logo-wrap--dark">
+                        <img src="img/cinta/gobierno%20regional.png" alt="Gobierno Regional de Ayacucho" class="partners-ticker__logo">
+                    </div>
+                    <span>Gobierno Regional de Ayacucho</span>
+                </div>
+                <div class="partners-ticker__item partners-ticker__item--logo">
+                    <div class="partners-ticker__logo-wrap">
+                        <img src="img/cinta/logo-ahren.png" alt="AHREN Contratistas Generales S.A.C." class="partners-ticker__logo">
+                    </div>
+                    <span>AHREN Contratistas Generales</span>
+                </div>
+                <div class="partners-ticker__item partners-ticker__item--logo">
+                    <div class="partners-ticker__logo-wrap">
+                        <img src="img/cinta/Captura%20de%20pantalla%202026-03-11%20214845.png" alt="Avatar U&amp;D E.I.R.L." class="partners-ticker__logo">
+                    </div>
+                    <span>Avatar U&amp;D E.I.R.L.</span>
+                </div>
+                <div class="partners-ticker__item">Mun. Distrital de Morochucos</div>
+                <div class="partners-ticker__item">Consorcio Santa Rosa</div>
             </div>
         </section>
 
@@ -749,6 +749,8 @@
                         <div class="contact__social-links">
                             <a href="https://www.facebook.com/p/company-AroNe-anonimo-61563123315401/" target="_blank"
                                 rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="http://tiktok.com/@companyaroneanonimo" target="_blank" rel="noopener"
+                                aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                             <a href="https://www.youtube.com/@companyAroNeanonimo" target="_blank" rel="noopener"
                                 aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
@@ -775,22 +777,9 @@
                             </div>
                         </div>
                         <div class="form__group">
-                            <label for="service" class="form__label">Tipo de Servicio</label>
-                            <select id="service" name="service" class="form__input form__select" required>
-                                <option value="" disabled selected>Selecciona un servicio</option>
-                                <option value="reparacion-griferia">Reparación de Grifería</option>
-                                <option value="instalacion-sanitaria">Instalación Sanitaria</option>
-                                <option value="deteccion-fugas">Detección de Fugas</option>
-                                <option value="desatoro">Desatoro de Tuberías</option>
-                                <option value="termas">Termas y Calentadores</option>
-                                <option value="emergencia">Emergencia</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        <div class="form__group">
-                            <label for="message" class="form__label">Describe tu problema</label>
+                            <label for="message" class="form__label">Dinos tu propuesta</label>
                             <textarea id="message" name="message" class="form__input form__textarea"
-                                placeholder="Cuéntanos qué necesitas..." rows="4" required></textarea>
+                                placeholder="Cuéntanos qué necesitas, tu presupuesto o cualquier detalle..." rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn--primary btn--lg btn--full"><i class="fab fa-whatsapp"></i>
                             Enviar por WhatsApp</button>
@@ -839,6 +828,8 @@
                     <div class="footer__social">
                         <a href="https://www.facebook.com/p/company-AroNe-anonimo-61563123315401/" target="_blank"
                             rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="http://tiktok.com/@companyaroneanonimo" target="_blank" rel="noopener"
+                            aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                         <a href="https://www.youtube.com/@companyAroNeanonimo" target="_blank" rel="noopener"
                             aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>

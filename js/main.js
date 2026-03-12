@@ -5,7 +5,58 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ===========================
-    // MOBILE NAVIGATION
+    // INFINITE TICKER
+    // ===========================
+    (function () {
+        const section = document.querySelector('.partners-ticker');
+        const track   = section && section.querySelector('.partners-ticker__track');
+        if (!track) return;
+
+        const originalItems = Array.from(track.children);
+
+        function init() {
+            // Measure one set width
+            const setWidth = originalItems.reduce((s, el) => s + el.offsetWidth, 0);
+            if (setWidth === 0) { requestAnimationFrame(init); return; }
+
+            // Clone until track is at least 3× viewport wide
+            while (track.scrollWidth < window.innerWidth * 3) {
+                originalItems.forEach(el => track.appendChild(el.cloneNode(true)));
+            }
+
+            const speed = 0.45; // px per frame (~27 px/s at 60 fps)
+            let x = 0;
+            let paused = false;
+
+            section.addEventListener('mouseenter', () => { paused = true; });
+            section.addEventListener('mouseleave', () => { paused = false; });
+
+            function step() {
+                if (!paused) {
+                    x -= speed;
+                    if (x <= -setWidth) x += setWidth;
+                    track.style.transform = 'translateX(' + x + 'px)';
+                }
+                requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        // Wait for all ticker images before measuring
+        const imgs = track.querySelectorAll('img');
+        if (!imgs.length) {
+            init();
+        } else {
+            let pending = imgs.length;
+            const done = () => { if (--pending === 0) init(); };
+            imgs.forEach(img => {
+                if (img.complete) done();
+                else { img.addEventListener('load', done); img.addEventListener('error', done); }
+            });
+        }
+    })();
+
+
     // ===========================
     const navToggle = document.getElementById('nav-toggle');
     const navClose = document.getElementById('nav-close');
@@ -367,18 +418,15 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const service = document.getElementById('service');
-            const serviceText = service.options[service.selectedIndex]?.text || '';
+            const name    = document.getElementById('name').value.trim();
+            const phone   = document.getElementById('phone').value.trim();
+            const email   = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
 
             let waMessage = `¡Hola! Soy *${name}*.\n\n`;
             waMessage += `📱 Teléfono: ${phone}\n`;
             if (email) waMessage += `📧 Email: ${email}\n`;
-            waMessage += `🔧 Servicio: ${serviceText}\n\n`;
-            waMessage += `📝 Detalle:\n${message}`;
+            waMessage += `\n📝 Propuesta:\n${message}`;
 
             const encodedMessage = encodeURIComponent(waMessage);
             const whatsappURL = `https://wa.me/51959784254?text=${encodedMessage}`;
